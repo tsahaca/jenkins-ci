@@ -1,16 +1,23 @@
 pipeline {
-    agent { label 'master' }
+    agent any
+    tools { 
+        maven 'Maven 3.3.9' 
+        jdk 'jdk8' 
+    }
     stages {
-       stage('build') {
-          steps {
-             sh 'echo step1'
-             sh 'echo step2'
-             sh '''
-                echo 'Multiline'
-                echo 'Example'
-             '''
-             echo 'not using shell'
-          }
-       }
+        stage ('Initialize') {
+            steps {
+                sh '''
+                    echo "PATH = ${PATH}"
+                    echo "M2_HOME = ${M2_HOME}"
+                ''' 
+            }
+        }
+
+        stage ('Build') {
+            steps {
+                echo 'This is a minimal pipeline.'
+            }
+        }
     }
 }
