@@ -13,12 +13,6 @@ pipeline {
                 ''' 
             }
         }
-
-        stage ('Build') {
-            steps {
-                echo 'This is a minimal pipeline test.'
-            }
-        }
         
         stage ('Build') {
             steps {
